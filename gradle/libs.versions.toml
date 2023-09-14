@@ -2,9 +2,14 @@
 # The latest versions are available at https://lambdaurora.dev/tools/import_quilt.html
 minecraft = "1.20.1"
 quilt_mappings = "1.20.1+build.23"
-quilt_loader = "0.19.4"
+quilt_loader = "0.20.2"
 
-quilted_fabric_api = "7.1.2+0.87.0-1.20.1"
+quilted_fabric_api = "7.2.2+0.88.1-1.20.1"
+
+mixin_extras = "0.2.0-rc.2"
+
+terraformers_wood_api = "7.0.1"
+promenade = "v4.1.0"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
@@ -12,11 +17,17 @@ quilt_mappings = { module = "org.quiltmc:quilt-mappings", version.ref = "quilt_m
 quilt_loader = { module = "org.quiltmc:quilt-loader", version.ref = "quilt_loader" }
 
 quilted_fabric_api = { module = "org.quiltmc.quilted-fabric-api:quilted-fabric-api", version.ref = "quilted_fabric_api" }
-quilted_fabric_api_deprecated = { module = "org.quiltmc.quilted-fabric-api:quilted-fabric-api-deprecated", version.ref = "quilted_fabric_api" }
+#quilted_fabric_api_deprecated = { module = "org.quiltmc.quilted-fabric-api:quilted-fabric-api-deprecated", version.ref = "quilted_fabric_api" }
+
+mixin_extras = { module = "com.github.LlamaLad7.MixinExtras:mixinextras-common", version.ref = "mixin_extras" }
+
+terraformers_wood_api = { module = "com.terraformersmc.terraform-api:terraform-wood-api-v1", version.ref = "terraformers_wood_api" }
+promenade = { module = "maven.modrinth:promenade", version.ref = "promenade" }
 
 # If you have multiple similar dependencies, you can declare a dependency bundle and reference it on the build script with "libs.bundles.example".
 [bundles]
-quilted_fabric_api = ["quilted_fabric_api", "quilted_fabric_api_deprecated"]
+quilted_fabric_api = ["quilted_fabric_api"]
+targets = ["terraformers_wood_api", "promenade"]
 
 [plugins]
 quilt_loom = { id = "org.quiltmc.loom", version = "1.3.+" }

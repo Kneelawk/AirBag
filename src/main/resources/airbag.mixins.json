@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.kneelawk.airbag.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "PromenadeTrackedDataMixin",
+    "TerraformBoatTrackedDataMixin"
+  ],
+  "client": [
+    "EntityTrackerUpdateS2CPacketMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
