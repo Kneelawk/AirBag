@@ -27,10 +27,36 @@ repositories {
         }
     }
     maven {
-        name = 'JitPack'
-        url = 'https://jitpack.io'
+        // for Promenade
+        name "JitPack"
+        url "https://jitpack.io"
         content {
-            includeGroup 'com.github.LlamaLad7.MixinExtras'
+            includeGroup "com.github.DawnTeamMC"
+        }
+    }
+    maven {
+        name "MinecraftForge"
+        url "https://maven.minecraftforge.net/"
+        content {
+            includeGroup "com.github.glitchfiend"
+        }
+    }
+    maven {
+        name "Modmaven"
+        url "https://modmaven.dev/"
+        content {
+            includeGroup 'appeng'
+        }
+    }
+    maven {
+        // Shedaniel's maven (Architectury API)
+        url = "https://maven.architectury.dev"
+    }
+    maven {
+        // saps.dev Maven (KubeJS and Rhino)
+        url = "https://maven.saps.dev/releases"
+        content {
+            includeGroup "dev.latvian.mods"
         }
     }
 }
@@ -44,14 +70,21 @@ dependencies {
     // Quilted Fabric API will automatically pull in the correct QSL version.
      modImplementation libs.bundles.quilted.fabric.api
 
-    // MixinExtras
-    implementation libs.mixin.extras
-    annotationProcessor libs.mixin.extras
-    include libs.mixin.extras
-
     // Target mods
-    modCompileOnly libs.bundles.targets
-    modLocalRuntime libs.bundles.targets
+    modCompileOnly(libs.bundles.targets) {
+        exclude(group: "net.fabricmc")
+        exclude(group: "net.fabricmc.fabric-api")
+        exclude(group: "com.llamalad7.mixinextras")
+        exclude(group: "io.github.llamalad7")
+        exclude(group: "squeek.appleskin")
+    }
+    modLocalRuntime(libs.bundles.targets) {
+        exclude(group: "net.fabricmc")
+        exclude(group: "net.fabricmc.fabric-api")
+        exclude(group: "com.llamalad7.mixinextras")
+        exclude(group: "io.github.llamalad7")
+        exclude(group: "squeek.appleskin")
+    }
 }
 
 processResources {
