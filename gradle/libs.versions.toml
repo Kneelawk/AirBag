@@ -10,6 +10,7 @@ terraformers_wood_api = "7.0.1"
 promenade = "v4.1.1"
 appeng = "15.0.16"
 kubejs = "2001.6.4-build.118"
+ae2wt = "15.2.1-fabric"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
@@ -23,11 +24,12 @@ terraformers_wood_api = { module = "com.terraformersmc.terraform-api:terraform-w
 promenade = { module = "com.github.DawnTeamMC:Promenade", version.ref = "promenade" }
 appeng = { module = "appeng:appliedenergistics2-fabric", version.ref = "appeng" }
 kubejs = { module = "dev.latvian.mods:kubejs-fabric", version.ref = "kubejs" }
+ae2wt = { module = "maven.modrinth:applied-energistics-2-wireless-terminals", version.ref = "ae2wt" }
 
 # If you have multiple similar dependencies, you can declare a dependency bundle and reference it on the build script with "libs.bundles.example".
 [bundles]
 quilted_fabric_api = ["quilted_fabric_api", "quilted_fabric_api_deprecated"]
-targets = ["terraformers_wood_api", "promenade", "appeng", "kubejs"]
+targets = ["terraformers_wood_api", "promenade", "appeng", "kubejs", "ae2wt"]
 
 [plugins]
 quilt_loom = { id = "org.quiltmc.loom", version = "1.3.+" }

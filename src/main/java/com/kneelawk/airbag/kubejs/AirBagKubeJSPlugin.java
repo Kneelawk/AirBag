@@ -7,6 +7,8 @@ import appeng.recipes.handlers.ChargerRecipeSerializer;
 import appeng.recipes.handlers.InscriberRecipeSerializer;
 import appeng.recipes.mattercannon.MatterCannonAmmoSerializer;
 import appeng.recipes.transform.TransformRecipeSerializer;
+import de.mari_023.ae2wtlib.wut.recipe.Combine;
+import de.mari_023.ae2wtlib.wut.recipe.Upgrade;
 import dev.latvian.mods.kubejs.KubeJSPlugin;
 import dev.latvian.mods.kubejs.recipe.schema.JsonRecipeSchemaType;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeNamespace;
@@ -37,6 +39,21 @@ public class AirBagKubeJSPlugin extends KubeJSPlugin {
                 public RecipeSerializer<?> getSerializer() {
                     // delay until after AE2 is loaded
                     return FacadeRecipe.getSerializer(AEItems.FACADE.asItem());
+                }
+            });
+        }
+        if (QuiltLoader.isModLoaded("ae2wtlib")) {
+            RecipeNamespace ae2wt = event.namespace("ae2wtlib");
+            ae2wt.put("upgrade", new JsonRecipeSchemaType(ae2wt, new Identifier("ae2wtlib:upgrade"), null) {
+                @Override
+                public RecipeSerializer<?> getSerializer() {
+                    return Upgrade.serializer;
+                }
+            });
+            ae2wt.put("combine", new JsonRecipeSchemaType(ae2wt, new Identifier("ae2wtlib:combine"), null) {
+                @Override
+                public RecipeSerializer<?> getSerializer() {
+                    return Combine.serializer;
                 }
             });
         }
