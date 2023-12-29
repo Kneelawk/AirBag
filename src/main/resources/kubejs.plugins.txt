@@ -1,0 +1,1 @@
+com.kneelawk.airbag.kubejs.AirBagKubeJSPlugin
